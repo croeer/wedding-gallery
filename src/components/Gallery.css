@@ -1,0 +1,66 @@
+.gallery-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.image-wrapper {
+    overflow: hidden;
+}
+
+.gallery-img {
+    border-radius: 0;
+    object-fit: cover;
+    height: 240px;
+    width: 100%;
+    transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .gallery-img {
+    transform: scale(1.05);
+}
+
+/* Accordion styling */
+.accordion-button {
+    background-color: #d8b4fe !important; /* Tailwind's bg-purple-300 - very light purple */
+    color: #4c1d95 !important; /* Darker purple text for contrast */
+    font-weight: 500;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e9d5ff !important; /* Tailwind's bg-purple-200 - even lighter for active state */
+    color: #4c1d95 !important;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, 0.125);
+}
+
+.accordion-button::after {
+    filter: invert(20%) sepia(50%) saturate(1000%) hue-rotate(240deg) brightness(30%) contrast(100%); /* Makes the chevron icon dark purple */
+}
+
+.accordion-item {
+    border: none;
+    margin-bottom: 0.5rem;
+}
+
+.accordion-body {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .gallery-img {
+        height: 200px;
+    }
+}
