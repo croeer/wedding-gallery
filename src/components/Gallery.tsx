@@ -62,6 +62,43 @@ const galleryData: Folder[] = [
     ],
   },
   {
+    name: "Fotobox",
+    images: [
+      { src: "/photos/fotobox/20250322_174755_155_IMG_0005.jpg" },
+      { src: "/photos/fotobox/20250322_180026_424_IMG_0006.jpg" },
+      { src: "/photos/fotobox/20250322_180600_266_IMG_0015.jpg" },
+      { src: "/photos/fotobox/20250322_192944_183_IMG_0025.jpg" },
+      { src: "/photos/fotobox/20250322_193426_759_IMG_0035.jpg" },
+      { src: "/photos/fotobox/20250322_194329_684_IMG_0044.jpg" },
+      { src: "/photos/fotobox/20250322_194356_848_IMG_0045.jpg" },
+      { src: "/photos/fotobox/20250322_194516_012_IMG_0048.jpg" },
+      { src: "/photos/fotobox/20250322_210334_455_IMG_0061.jpg" },
+      { src: "/photos/fotobox/20250322_210507_245_IMG_0065.jpg" },
+      { src: "/photos/fotobox/20250322_213824_384_IMG_0081.jpg" },
+      { src: "/photos/fotobox/20250322_214743_647_IMG_0087.jpg" },
+      { src: "/photos/fotobox/20250322_221413_423_IMG_0094.jpg" },
+      { src: "/photos/fotobox/20250322_221441_875_IMG_0095.jpg" },
+      { src: "/photos/fotobox/20250322_221805_194_IMG_0098.jpg" },
+      { src: "/photos/fotobox/20250322_222920_910_IMG_0107.jpg" },
+      { src: "/photos/fotobox/20250322_223121_331_IMG_0112.jpg" },
+      { src: "/photos/fotobox/20250322_223543_173_IMG_0124.jpg" },
+      { src: "/photos/fotobox/20250322_223929_589_IMG_0134.jpg" },
+      { src: "/photos/fotobox/20250322_225441_400_IMG_0141.jpg" },
+      { src: "/photos/fotobox/20250322_225503_027_IMG_0142.jpg" },
+      { src: "/photos/fotobox/20250322_231147_818_IMG_0146.jpg" },
+      { src: "/photos/fotobox/20250322_235016_987_IMG_0151.jpg" },
+      { src: "/photos/fotobox/20250322_235312_263_IMG_0154.jpg" },
+      { src: "/photos/fotobox/20250322_235624_626_IMG_0158.jpg" },
+      { src: "/photos/fotobox/20250323_000721_633_IMG_0175.jpg" },
+      { src: "/photos/fotobox/20250323_003151_514_IMG_0193.jpg" },
+      { src: "/photos/fotobox/20250323_004921_822_IMG_0198.jpg" },
+      { src: "/photos/fotobox/20250323_012750_177_IMG_0199.jpg" },
+      { src: "/photos/fotobox/20250323_012859_596_IMG_0201.jpg" },
+      { src: "/photos/fotobox/20250323_020554_464_IMG_0203.jpg" },
+      { src: "/photos/fotobox/20250323_020655_794_IMG_0206.jpg" },
+    ],
+  },
+  {
     name: "Party",
     images: [
       { src: "/photos/party/img1.jpg" },
@@ -96,7 +133,7 @@ export default function Gallery() {
         <Accordion.Item key={folderIndex} eventKey={folderIndex.toString()}>
           <Accordion.Header>{folder.name}</Accordion.Header>
           <Accordion.Body>
-            <Row xs={2} sm={3} md={4} lg={5} className="g-3">
+            <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-2">
               {folder.images.map((img, imageIndex) => (
                 <Col key={imageIndex}>
                   <Card
