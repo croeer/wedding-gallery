@@ -152,29 +152,14 @@ export default function Gallery() {
     setOpen(true);
   };
 
-  const handleAccordionSelect = (eventKey: any) => {
-    if (eventKey) {
-      setTimeout(() => {
-        const element = document.getElementById(`accordion-${eventKey}`);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 300);
-    }
-  };
-
   const getCurrentFolderImages = () => {
     return galleryData[currentFolder].images;
   };
 
   return (
-    <Accordion onSelect={handleAccordionSelect}>
+    <Accordion>
       {galleryData.map((folder, folderIndex) => (
-        <Accordion.Item
-          key={folderIndex}
-          eventKey={folderIndex.toString()}
-          id={`accordion-${folderIndex}`}
-        >
+        <Accordion.Item key={folderIndex} eventKey={folderIndex.toString()}>
           <Accordion.Header>{folder.name}</Accordion.Header>
           <Accordion.Body>
             <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-2">
