@@ -1,5 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Gallery from "./components/Gallery";
+import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         Wir haben ja gesagt!
       </div>
       <Gallery />
+      <ScrollToTop />
     </Container>
   );
 }
