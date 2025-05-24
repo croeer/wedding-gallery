@@ -144,26 +144,37 @@ const galleryData: Folder[] = [
 export default function Gallery() {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
+  const [currentFolder, setCurrentFolder] = useState<number>(0);
 
   const handleClick = (folderIndex: number, imageIndex: number) => {
-    // Calculate the global index by summing up the lengths of previous folders
-    const globalIndex =
-      galleryData
-        .slice(0, folderIndex)
-        .reduce((sum, folder) => sum + folder.images.length, 0) + imageIndex;
-
-    setIndex(globalIndex);
+    setCurrentFolder(folderIndex);
+    setIndex(imageIndex);
     setOpen(true);
   };
 
-  const getAllImages = () => {
-    return galleryData.flatMap((folder) => folder.images);
+  const handleAccordionSelect = (eventKey: any) => {
+    if (eventKey) {
+      setTimeout(() => {
+        const element = document.getElementById(`accordion-${eventKey}`);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
+    }
+  };
+
+  const getCurrentFolderImages = () => {
+    return galleryData[currentFolder].images;
   };
 
   return (
-    <Accordion defaultActiveKey="0">
+    <Accordion onSelect={handleAccordionSelect}>
       {galleryData.map((folder, folderIndex) => (
-        <Accordion.Item key={folderIndex} eventKey={folderIndex.toString()}>
+        <Accordion.Item
+          key={folderIndex}
+          eventKey={folderIndex.toString()}
+          id={`accordion-${folderIndex}`}
+        >
           <Accordion.Header>{folder.name}</Accordion.Header>
           <Accordion.Body>
             <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-2">
@@ -192,7 +203,7 @@ export default function Gallery() {
         open={open}
         close={() => setOpen(false)}
         index={index}
-        slides={getAllImages().map((img) => ({ src: img.src }))}
+        slides={getCurrentFolderImages().map((img) => ({ src: img.src }))}
       />
     </Accordion>
   );
